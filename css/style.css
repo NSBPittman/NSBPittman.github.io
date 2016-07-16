@@ -410,6 +410,10 @@ a.bg-danger:hover {
   margin: 60px 0 30px;
   border-bottom: 1px solid #e7e9ec;
 }
+
+a.button_down:hover {
+    color: #15967d;
+}
 ul,
 ol {
   margin-bottom: 15px;

@@ -152,18 +152,35 @@ filter: alpha(opacity=95) !important;
 	background: rgba(204, 204, 204, 0);
 }
 
-.button_down img {
-width: 50px;
-	
+.button_down{
+font-size: 50px;	
 }
+
+.button_down:hover{
+font-size: 50px;
+color: #1abc9c;
+}
+
 .btn-primary {
 	border-color: rgba(52, 73, 94, 0);
 }
 
 .tworow{margin-top: 90px;}
 
+.intro-social {
+	font-size: 50px;
+	text-decoration: none;
+	list-style-type: none;
+	color: #1abc9c; 
+}
+
+.intro-social > a:hover {
+	color: #1abc9c; 
+}
+
+
 .social {
-	font-size: 30px;
+	font-size: 50px;
 	text-decoration: none;
 	list-style-type: none;
 	color: #1abc9c; 
@@ -245,8 +262,8 @@ color: #ECEBEB;
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
-	color: #f8f8f8;
-	background: url(../img/intro/intro5.jpg) no-repeat center center;
+	color: #34495e;
+	background: url(../img/intro/ugh.jpg) no-repeat center center;
 	background-size: cover;
 	text-align: center;
 }
