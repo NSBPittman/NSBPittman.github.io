@@ -88,8 +88,8 @@ html {
 
 .h1_home {
     font-size: 80px;
-    font-family: arvo;
-    font-weight: 300;
+    font-family: Lato;
+    font-weight: 450;
     letter-spacing: 6px;
 }
 
@@ -283,9 +283,9 @@ html {
 }
 
 .navbar-brand {
-    font-family: arvo;
+    font-family: Lato;
     letter-spacing: 3px;
-    font-weight: 400 !important;
+    font-weight: 9000 !important;
 }
 
 .lead {
