@@ -35,10 +35,19 @@ var mainState = {
 		
 		game.physics.arcade.overlap(
 			this.bird, this.pipes, this.restartGame, null, this);
+		
+		if (this.bird.angle < 20)
+			this.bird.angle += 1;
 	},
 	
 	jump: function(){
 		this.bird.body.velocity.y = -350;
+		
+		var animation = game.add.tween(this.bird);
+		
+		animation.to({angle: -20}, 100);
+		
+		animation.start();
 	},
 	
 	restartGame: function(){
