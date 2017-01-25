@@ -26,21 +26,28 @@ var mainState = {
 		this.score = 0;
 		this.labelScore = game.add.text(20, 20, "0",
 			{ font: "30px Arial", fill: "#ffffff" });
+		
+		this.bird.anchor.setTo(-0.2, 0.5);
 			
 	},
 	
 	update: function(){
 		if (this.bird.y < 0 || this.bird.y > 490)
-			this.restartGame();	
-		
-		game.physics.arcade.overlap(
-			this.bird, this.pipes, this.restartGame, null, this);
+			this.restartGame();
 		
 		if (this.bird.angle < 20)
 			this.bird.angle += 1;
+		
+		game.physics.arcade.overlap(
+			this.bird, this.pipes, this.hitPipe, null, this);
+		
+		
 	},
 	
 	jump: function(){
+		if (this.bird.alive == false)
+			return;
+		
 		this.bird.body.velocity.y = -350;
 		
 		var animation = game.add.tween(this.bird);
@@ -75,6 +82,19 @@ var mainState = {
 		for (var i = 0; i < 8; i++)
 			if (i != hole && i != hole + 1)
 				this.addOnePipe(400, i * 60 + 10);
+	},
+	
+	hitPipe: function() {
+		if (this.bird.alive == false)
+			return;
+		
+		this.bird.alive = false;
+		
+		game.time.events.remove(this.timer);
+		
+		this.pipes.forEach(function(p){
+			p.body.velocity.x = 0;
+		}, this);
 	},
 };
 
