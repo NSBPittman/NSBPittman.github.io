@@ -80,7 +80,7 @@ var mainState = {
 		this.labelScore.text = this.score;
 		
 		for (var i = 0; i < 8; i++)
-			if (i != hole && i != hole + 1)
+			if (i != hole && i != hole + 1 && i != hole + 2)
 				this.addOnePipe(400, i * 60 + 10);
 	},
 	
