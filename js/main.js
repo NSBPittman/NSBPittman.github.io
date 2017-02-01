@@ -1,6 +1,6 @@
 var mainState = {
 	preload: function(){
-		game.load.image('bird', '../assets/bird.png');
+		game.load.spritesheet('bird', '../assets/ayy.png', 30, 50);
 		game.load.image('pipe', '../assets/pipe.png');
 	},
 	
@@ -9,7 +9,13 @@ var mainState = {
 		
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		
-		this.bird = game.add.sprite(100, 245, 'bird');
+		this.bird = game.add.sprite(100, 245, 'bird', 1);
+        this.bird.smoothed = false;
+        this.bird.scale.set(1);
+        
+        fly = this.bird.animations.add("fly", [2], 5, true);
+        
+        fly.enableUpdate = true;
 		
 		game.physics.arcade.enable(this.bird);
 		
@@ -32,11 +38,19 @@ var mainState = {
 	},
 	
 	update: function(){
+        var spaceKey = game.input.keyboard.addKey(
+						Phaser.Keyboard.SPACEBAR);
+        
 		if (this.bird.y < 0 || this.bird.y > 490)
 			this.restartGame();
 		
 		if (this.bird.angle < 20)
 			this.bird.angle += 1;
+        
+        if (spaceKey.isDown)
+            this.bird.play('fly');
+        else
+            this.bird.animations.stop()
 		
 		game.physics.arcade.overlap(
 			this.bird, this.pipes, this.hitPipe, null, this);
@@ -80,7 +94,7 @@ var mainState = {
 		this.labelScore.text = this.score;
 		
 		for (var i = 0; i < 8; i++)
-			if (i != hole && i != hole + 1 && i != hole + 2)
+			if (i != hole && i != hole + 1)
 				this.addOnePipe(400, i * 60 + 10);
 	},
 	
