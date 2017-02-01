@@ -9,10 +9,11 @@ var mainState = {
 		
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		
-		this.bird = game.add.sprite(100, 245, 'bird', 0);
+		this.bird = game.add.sprite(100, 245, 'bird');
         this.bird.smoothed = false;
+        this.bird.frame = 0;
         
-        fly = this.bird.animations.add("fly", [1], 1, true);
+        fly = this.bird.animations.add("fly", [0, 1], 1, true);
         
         fly.enableUpdate = true;
 		
