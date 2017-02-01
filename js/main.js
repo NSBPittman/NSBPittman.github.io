@@ -1,6 +1,6 @@
 var mainState = {
 	preload: function(){
-		game.load.spritesheet('bird', '../assets/ayy.png', 30, 50);
+		game.load.spritesheet('bird', '../assets/ayy.png', 60, 50);
 		game.load.image('pipe', '../assets/pipe.png');
 	},
 	
@@ -11,7 +11,6 @@ var mainState = {
 		
 		this.bird = game.add.sprite(100, 245, 'bird', 1);
         this.bird.smoothed = false;
-        this.bird.scale.set(1);
         
         fly = this.bird.animations.add("fly", [2], 5, true);
         
