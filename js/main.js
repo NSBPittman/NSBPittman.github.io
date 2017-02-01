@@ -1,6 +1,6 @@
 var mainState = {
 	preload: function(){
-		game.load.spritesheet('bird', '../assets/ayy.png', 60, 50);
+		game.load.spritesheet('bird', '../assets/ayy.png', 60, 100);
 		game.load.image('pipe', '../assets/pipe.png');
 	},
 	
@@ -9,10 +9,10 @@ var mainState = {
 		
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 		
-		this.bird = game.add.sprite(100, 245, 'bird', 1);
+		this.bird = game.add.sprite(100, 245, 'bird', 0);
         this.bird.smoothed = false;
         
-        fly = this.bird.animations.add("fly", [2], 5, true);
+        fly = this.bird.animations.add("fly", [1], 1, true);
         
         fly.enableUpdate = true;
 		
@@ -48,8 +48,11 @@ var mainState = {
         
         if (spaceKey.isDown)
             this.bird.play('fly');
-        else
+        else{
             this.bird.animations.stop()
+            this.bird.frame = 0;
+
+        }
 		
 		game.physics.arcade.overlap(
 			this.bird, this.pipes, this.hitPipe, null, this);
