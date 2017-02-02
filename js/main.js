@@ -12,6 +12,7 @@ var mainState = {
 		this.bird = game.add.sprite(100, 245, 'bird');
         this.bird.smoothed = false;
         this.bird.frame = 0;
+        this.bird.scale.set(.5);
         
         fly = this.bird.animations.add("fly", [0, 1], 1, true);
         
