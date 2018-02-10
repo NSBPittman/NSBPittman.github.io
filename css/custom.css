@@ -420,4 +420,12 @@ NO MORE TABLES!! ;)
 		font-weight: bold;
 	}
 }
-s
+
+
+
+#flaps
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
